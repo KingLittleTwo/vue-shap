@@ -16,5 +16,3 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-
-Vue.http.post('/goods', [body], [options]).then(successCallback, errorCallback);

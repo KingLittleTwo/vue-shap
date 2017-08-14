@@ -25,6 +25,38 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 var compiler = webpack(webpackConfig)
 
+// 模拟数据mock  begin
+// var appData = require('../data.json');
+// var seller = appData.seller
+// var goods = appData.goods
+// var ratings = appData.ratings
+//
+// var apiRoutes = express.Router()
+// console.log(apiRoutes)
+// apiRoutes.get('/api/seller', function (req, res) {
+//   res.json({
+//     errno: 0,
+//     seller: seller
+//   })
+// })
+//
+// apiRoutes.get('/goods', function (req, res) {
+//   res.json({
+//     errno: 0,
+//     seller: goods
+//   })
+// })
+//
+// apiRoutes.get('/ratings', function (req, res) {
+//   res.json({
+//     errno: 0,
+//     seller: ratings
+//   })
+// })
+
+// app.use('/api', apiRoutes);
+// 模拟数据mock  end
+//
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true

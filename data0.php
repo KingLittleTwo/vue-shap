@@ -1,7 +1,6 @@
 <?php
-$pre = $_REQUEST['callback'];
 
-echo $pre.'({
+echo '{
     "seller": {
       "name": "粥品香坊（回龙观）",
       "description": "蜂鸟专送",
@@ -1379,4 +1378,4 @@ echo $pre.'({
         "recommend": []
       }
     ]
-  })';
+  }';

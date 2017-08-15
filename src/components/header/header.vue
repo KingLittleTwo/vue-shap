@@ -37,6 +37,14 @@
       <div class="detail-wrapper clearfix">
         <div class="detail-main">
           <h1>{{seller.name}}</h1>
+          <div class="star-wrapper">
+            <star :size="48" :score="seller.score"></star>
+          </div>
+        </div>
+        <div class="title">
+          <div class="line"></div>
+          <div class="text">优惠详情</div>
+          <div class="line"></div>
         </div>
       </div>
       <div class="detail-close">x</div>
@@ -45,6 +53,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import star from 'components/star/star';
 
   export default {
     props: [
@@ -68,6 +77,10 @@
       showDetail() {
         this.detailShow = true;
       }
+    },
+    // 注册组件
+    components: {
+      star
     }
   }
 
@@ -200,6 +213,11 @@
   font-weight: 700;
   text-align: center;
 }
+.detail .detail-wrapper .detail-main .star-wrapper{
+  margin-top: 18px;
+  padding: 2px 0;
+  text-align: center;
+}
 .detail .detail-close{
   position: relative;
   width: 32px;
@@ -207,5 +225,21 @@
   margin: -64px auto 0 auto;
   clear: both;
   font-size: 32px;
+}
+.detail .detail-wrapper .title{
+  display: flex;
+  width: 80%;
+  margin: 28px auto 24px auto;
+}
+.detail .detail-wrapper .title .line{
+  flex: 1;
+  position: relative;
+  top: -6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.detail .detail-wrapper .title .text{
+  padding: 0 12px;
+  font-weight: 700;
+  font-size: 14px;
 }
 </style>

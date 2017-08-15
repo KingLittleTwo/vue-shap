@@ -24,8 +24,8 @@ export default {
   },
   methods: {
     fetchData () {
-      // var url = 'http://127.0.0.1/vue/vue-shap/data.php'
-      var url = 'http://localhost:8080/vue/elm/data.php';
+      var url = 'http://127.0.0.1/vue/vue-shap/data.php';
+      // var url = 'http://localhost:8080/vue/elm/data.php';
       // this.loading = true;
       this.$http.jsonp(url).then(function (data) {
         this.seller = data.body.seller;

@@ -14,21 +14,24 @@ export default {
     vheader: header,
     vnav: nav
   },
-  data () {
+  data: function() {
     return {
-      'seller': {}
+      seller: {},
+      goods: {},
+      // url : 'http://127.0.0.1/vue/vue-shap/data.php'
+      url : 'http://localhost:8080/vue/elm/data.php'
     }
   },
   created () {
     this.fetchData()
   },
   methods: {
-    fetchData () {
-      var url = 'http://127.0.0.1/vue/vue-shap/data.php';
-      // var url = 'http://localhost:8080/vue/elm/data.php';
+    fetchData: function() {
       // this.loading = true;
-      this.$http.jsonp(url).then(function (data) {
+      this.$http.jsonp(this.url).then(function (data) {
         this.seller = data.body.seller;
+        this.goods = data.body.goods;
+        // console.log(this.goods);
       }, function (response) {
         console.log(response);
       })

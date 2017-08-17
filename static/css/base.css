@@ -19,3 +19,12 @@ a {
   visibility: hidden;
   clear: both;
 }
+
+/* 1 像素线 */
+.border-btm{
+  height:1px;
+  background:#ccc;
+  -webkit-transform: scaleY(0.5);
+  -webkit-transform-origin:0 0;
+  overflow: hidden;
+}

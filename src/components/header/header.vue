@@ -21,7 +21,7 @@
         </div>
       </div>
       <div v-if="seller.supports" class="supports-count" @click="showDetail">
-        <span class="count">{{seller.supports.length}}个 ></span>
+        <span class="count">{{seller.supports.length}}个 <i class="el-icon-arrow-right"></i></span>
       </div>
     </div>
     <div class="bulletin-wrapper" @click="showDetail">
@@ -33,22 +33,24 @@
       <img :src="seller.avatar" width="100%" height="100%" alt="">
     </div>
 
-    <div class="detail" v-show="detailShow">
-      <div class="detail-wrapper clearfix">
-        <div class="detail-main">
-          <h1>{{seller.name}}</h1>
-          <div class="star-wrapper">
-            <star :size="48" :score="seller.score"></star>
+    <transition name="fade">
+      <div class="detail" v-show="detailShow">
+        <div class="detail-wrapper clearfix">
+          <div class="detail-main">
+            <h1>{{seller.name}}</h1>
+            <div class="star-wrapper">
+              <star :size="48" :score="seller.score"></star>
+            </div>
+          </div>
+          <div class="title">
+            <div class="line"></div>
+            <div class="text">优惠详情</div>
+            <div class="line"></div>
           </div>
         </div>
-        <div class="title">
-          <div class="line"></div>
-          <div class="text">优惠详情</div>
-          <div class="line"></div>
-        </div>
+        <div @click="hideDetail" class="detail-close">x</div>
       </div>
-      <div class="detail-close">x</div>
-    </div>
+    </transition>
 	</div>
 </template>
 
@@ -76,6 +78,9 @@ import star from 'components/star/star';
     methods: {
       showDetail() {
         this.detailShow = true;
+      },
+      hideDetail() {
+        this.detailShow = false;
       }
     },
     // 注册组件
@@ -206,7 +211,7 @@ import star from 'components/star/star';
 }
 .detail .detail-wrapper .detail-main{
   margin-top: 64px;
-  padding-bottom: 64px;
+  /*padding-bottom: 64px;*/
 }
 .detail .detail-wrapper .detail-main h1{
   font-size: 18px;
@@ -241,5 +246,11 @@ import star from 'components/star/star';
   padding: 0 12px;
   font-weight: 700;
   font-size: 14px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0
 }
 </style>
